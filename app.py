@@ -1,8 +1,5 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
@@ -11,7 +8,6 @@ data = pd.read_csv("books_data.csv")
 
 # Title for the Streamlit app
 st.title("Book Recommendation System")
-
 
 # Display top 10 authors by the number of books
 st.subheader("Top 10 Authors by Number of Books")
@@ -53,7 +49,7 @@ def recommend_books(book_title, cosine_sim=cosine_sim):
 
 # User selection for the book title
 st.subheader("Book Recommendation")
-book_title = st.selectbox("Select a book title", data['Title of Book'].unique())
+book_title = st.selectbox("Select a book title", data['title'].unique())
 
 if book_title:
     # Display recommended books
