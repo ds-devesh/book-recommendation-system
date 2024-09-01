@@ -13,11 +13,6 @@ data = pd.read_csv("books_data.csv")
 st.title("Book Recommendation System")
 
 
-
-# Display top 10 authors by the number of books
-st.subheader("Top 10 Authors by Number of Books")
-
-
 # Display top 10 authors by the number of books
 st.subheader("Top 10 Authors by Number of Books")
 top_authors = data['authors'].value_counts().head(10)
@@ -58,7 +53,7 @@ def recommend_books(book_title, cosine_sim=cosine_sim):
 
 # User selection for the book title
 st.subheader("Book Recommendation")
-book_title = st.selectbox("Select a book title", data['title'].unique())
+book_title = st.selectbox("Select a book title", data['Title of Book'].unique())
 
 if book_title:
     # Display recommended books
