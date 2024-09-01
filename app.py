@@ -62,9 +62,9 @@ def recommend_books(book_title, cosine_sim=cosine_sim):
     # Return the top 10 recommended books
     return data['title'].iloc[book_indices]
 
-# User input for the book title
+# User selection for the book title
 st.subheader("Book Recommendation")
-book_title = st.text_input("Enter a book title")
+book_title = st.selectbox("Select a book title", data['title'].unique())
 
 if book_title:
     # Display recommended books
