@@ -12,22 +12,16 @@ data = pd.read_csv("books_data.csv")
 # Title for the Streamlit app
 st.title("Book Recommendation System")
 
-# Display the histogram for average rating
-st.subheader("Distribution of Average Ratings")
-fig, ax = plt.subplots()
-sns.histplot(x='average_rating', data=data, stat='count', ax=ax)
-st.pyplot(fig)
+
+
+# Display top 10 authors by the number of books
+st.subheader("Top 10 Authors by Number of Books")
+
 
 # Display top 10 authors by the number of books
 st.subheader("Top 10 Authors by Number of Books")
 top_authors = data['authors'].value_counts().head(10)
-
-fig, ax = plt.subplots(figsize=(10, 5))
-sns.barplot(x=top_authors.values, y=top_authors.index, palette='viridis', dodge=False, ax=ax)
-ax.set_title('Number of Books per Author')
-ax.set_xlabel('Number of Books')
-ax.set_ylabel('Author')
-st.pyplot(fig)
+st.write(top_authors)
 
 # Convert 'average_rating' to a numeric data type
 data['average_rating'] = pd.to_numeric(data['average_rating'], errors='coerce')
